@@ -1,0 +1,170 @@
+/* =========================================================================
+   NovaTube — block editor styles
+   Keeps the editor close to the front-end content styling without loading
+   the full theme layout inside the editor canvas.
+   ========================================================================= */
+
+:root {
+	--bg: #0b0b10;
+	--surface: #15151e;
+	--surface-2: #1b1b26;
+	--border: #262634;
+	--text: #f4f4f7;
+	--text-soft: #d5d5df;
+	--muted: #8f8fa3;
+	--accent: #ff3b6b;
+	--accent-2: #ff8a3d;
+	--accent-ink: #1c0710;
+	--radius: 10px;
+}
+
+.editor-styles-wrapper {
+	background: var(--bg);
+	color: var(--text-soft);
+	font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.78;
+}
+
+.editor-styles-wrapper .wp-block {
+	max-width: 1120px;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+	color: var(--text);
+	font-weight: 700;
+	line-height: 1.22;
+	letter-spacing: -0.02em;
+}
+
+.editor-styles-wrapper h1 {
+	font-size: 38px;
+}
+
+.editor-styles-wrapper h2 {
+	margin: 1.8em 0 0.6em;
+	font-size: 26px;
+	letter-spacing: -0.03em;
+}
+
+.editor-styles-wrapper h3 {
+	margin: 1.6em 0 0.5em;
+	font-size: 21px;
+}
+
+.editor-styles-wrapper h4 {
+	margin: 1.4em 0 0.4em;
+	font-size: 17px;
+}
+
+.editor-styles-wrapper a {
+	color: var(--accent);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
+.editor-styles-wrapper blockquote {
+	margin: 1.6em 0;
+	padding: 18px 22px;
+	border-left: 3px solid var(--accent);
+	border-radius: 0 10px 10px 0;
+	background: var(--surface);
+	color: var(--text);
+	font-size: 17px;
+	font-style: italic;
+}
+
+.editor-styles-wrapper blockquote p:last-child {
+	margin: 0;
+}
+
+.editor-styles-wrapper img {
+	height: auto;
+	border-radius: var(--radius);
+}
+
+.editor-styles-wrapper figcaption,
+.editor-styles-wrapper .wp-block-image figcaption {
+	margin-top: 8px;
+	color: var(--muted);
+	font-size: 12px;
+	text-align: center;
+}
+
+.editor-styles-wrapper table {
+	width: 100%;
+	margin: 1.5em 0;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+.editor-styles-wrapper th,
+.editor-styles-wrapper td {
+	padding: 10px 12px;
+	border: 1px solid var(--border);
+	text-align: left;
+}
+
+.editor-styles-wrapper th {
+	background: var(--surface);
+}
+
+.editor-styles-wrapper code {
+	padding: 2px 6px;
+	border-radius: 5px;
+	background: var(--surface-2);
+	font-size: 0.88em;
+}
+
+.editor-styles-wrapper pre {
+	padding: 18px;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	overflow: auto;
+}
+
+.editor-styles-wrapper pre code {
+	padding: 0;
+	background: none;
+}
+
+.editor-styles-wrapper hr,
+.editor-styles-wrapper .wp-block-separator {
+	margin: 2.2em 0;
+	border: 0;
+	border-top: 1px solid var(--border);
+}
+
+.editor-styles-wrapper .wp-block-button__link {
+	display: inline-flex;
+	padding: 12px 22px;
+	border-radius: 999px;
+	background: linear-gradient(135deg, var(--accent), var(--accent-2));
+	color: var(--accent-ink);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.editor-styles-wrapper .wp-block-cover,
+.editor-styles-wrapper .wp-block-group.has-background {
+	border-radius: var(--radius);
+}
+
+.editor-styles-wrapper .wp-block-quote cite {
+	color: var(--muted);
+	font-size: 13px;
+	font-style: normal;
+}
+
+.editor-styles-wrapper .wp-block-pullquote {
+	border-top: 2px solid var(--border);
+	border-bottom: 2px solid var(--border);
+	color: var(--text);
+}
