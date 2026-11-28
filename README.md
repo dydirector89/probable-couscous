@@ -1,6 +1,6 @@
 # NovaTube
 
-A fast, dark, video-first WordPress theme for tube sites. NovaTube adds a dedicated video post type, taxonomy-driven discovery, HD badges, ratings, AJAX loading, advertisement slots, and a configurable 18+ age gate, all wrapped in a responsive, media-first layout.
+A clean, minimal, feature-rich WordPress theme for tube sites. NovaTube pairs a dedicated video post type with an Astryx-inspired component system, a dark-first palette (with a light mode), taxonomy-driven discovery, AJAX loading, saved videos, instant search, and a configurable 18+ age gate.
 
 [![NovaTube homepage screenshot](novatube/screenshot.png)](novatube/screenshot.png)
 
@@ -24,18 +24,19 @@ A fast, dark, video-first WordPress theme for tube sites. NovaTube adds a dedica
 
 ## Overview
 
-NovaTube is built for sites where video is the product. It registers a `video` post type with its own categories, tags, and models, presents promoted content in a three-card hero, and keeps browsing fast with a responsive grid and AJAX “Load more”.
+NovaTube is built for sites where video is the product. It registers a `video` post type with its own categories, tags, and models, presents promoted content in a compact spotlight, and keeps browsing fast with a responsive grid and AJAX “Load more”.
 
-Everything is managed from the WordPress dashboard. The theme has no build step, no page-builder dependency, and no external JavaScript framework.
+The visual layer is a PHP-rendered `nt-` component library built on the vendored Astryx neutral tokens, Figtree font, and a dark-first palette with a user-switchable light mode. Everything is managed from the WordPress dashboard. The theme has no build step, no page-builder dependency, and no external JavaScript framework.
 
 ## Highlights
 
 ### Video-first content
 
 - Dedicated `video` post type with categories, tags, and models.
-- Featured hero for up to three promoted videos.
+- Three-card featured spotlight with a large lead video.
 - Responsive video grid with AJAX “Load more”.
 - Video pages with direct file, YouTube, Vimeo, and iframe player support.
+- Reference-style single video layout: release details, description, trailer, preview gallery/lightbox, file specs, downloads, spare links, cast/categories/tags, related videos, and threaded comments.
 - HD badges, duration labels, view counts, and five-star ratings.
 - Taxonomy chips, related videos, and threaded comments.
 - VideoObject structured data for search engines.
@@ -51,7 +52,10 @@ Everything is managed from the WordPress dashboard. The theme has no build step,
 
 - Five-star rating widget with one vote per browser, enforced by cookie.
 - One-view-per-browser counter; editors do not inflate their own counts.
-- Copy-link, X, and email sharing actions.
+- Local “Saved videos” watchlist with a dedicated dialog.
+- Instant search dialog with grouped results and keyboard navigation (`⌘/Ctrl + K` or `/`).
+- Dark/light colour mode toggle, persisted on the device.
+- Copy-link, X, Telegram, and email sharing actions.
 - Accessible navigation, skip link, focus states, and keyboard support.
 
 ### Monetization and compliance
@@ -63,9 +67,9 @@ Everything is managed from the WordPress dashboard. The theme has no build step,
 ### Customization
 
 - Brand colors for the primary and secondary accents.
-- Homepage controls for the hero, headings, top-rated section, chips, and videos per page.
+- Homepage controls for the spotlight, headings, popular section, chips, and videos per page.
 - Age-gate copy and destination controls.
-- Advertisement HTML fields for two placements.
+- Advertisement HTML fields for the sidebar, below-player, and homepage placements.
 - Footer about text, disclaimer, copyright line, and social links.
 
 ## Requirements
@@ -101,10 +105,21 @@ Everything is managed from the WordPress dashboard. The theme has no build step,
 
 4. Set a featured image. It is used as the card thumbnail and video poster.
 5. Add a duration as `12:34`, `1:02:03`, or a number of seconds.
-6. Choose video categories, tags, and models in the side panels.
-7. Optionally tick **HD video** and **Feature in the homepage hero**.
+6. Fill in the reference-style detail fields as needed:
 
-Videos appear automatically on the homepage, the `/videos/` archive, and their taxonomy pages.
+   | Field | Format |
+   | --- | --- |
+   | Release date, site, resolution, bitrate, frame rate, audio | Plain text |
+   | File name / file size | Plain text |
+   | Trailer URL | A full `https://` URL |
+   | Preview images | One image URL per line |
+   | Download links | `Label | URL | Size`, one per line (a bare URL also works) |
+   | Spare links | Same format as download links |
+
+7. Choose video categories, tags, and models in the side panels.
+8. Optionally tick **HD video** and **Feature in the homepage spotlight**.
+
+Videos appear automatically on the homepage, the `/videos/` archive, and their taxonomy pages. The detail fields populate the single video page’s specs, previews, trailer, and download sections.
 
 ## Customizer reference
 
@@ -124,19 +139,25 @@ Open **Appearance → Customize → NovaTube Options**.
 novatube/
 ├── assets/
 │   ├── css/
+│   │   ├── base.css
+│   │   ├── components.css
 │   │   ├── editor.css
-│   │   └── main.css
+│   │   ├── main.css           # legacy, not enqueued
+│   │   └── templates.css
 │   ├── img/
 │   │   └── placeholder.svg
-│   └── js/
-│       └── main.js
+│   ├── js/
+│   │   └── main.js
+│   └── vendor/
+│       └── astryx/            # core CSS, neutral theme, Figtree font
 ├── inc/
 │   ├── ajax.php
 │   ├── customizer.php
 │   ├── meta-boxes.php
 │   ├── post-types.php
 │   ├── setup.php
-│   └── template-tags.php
+│   ├── template-tags.php
+│   └── video-meta.php
 ├── languages/
 │   └── novatube.pot
 ├── template-parts/
@@ -165,7 +186,7 @@ novatube/
 
 ## Development
 
-The theme has no build step. Edit PHP, CSS, and JavaScript directly and refresh the browser.
+The theme has no build step. Edit PHP, CSS, and JavaScript directly and refresh the browser. Styles are layered as `base.css` (tokens, reset, layout, responsive), `components.css` (buttons, cards, dialogs, forms), and `templates.css` (home, single video, blog, comments). The vendor directory contains the compiled Astryx neutral theme and is loaded before the NovaTube layers.
 
 Useful checks:
 
@@ -198,7 +219,7 @@ Visit **Settings → Permalinks** and save once. The theme flushes rewrite rules
 
 ### How do I change the player size?
 
-The player fills its container, which is capped by the theme content width. Use Additional CSS to adjust `.player-frame` or `.novatube-player` if needed.
+The player fills a 16:9 container capped by the theme content width. Use Additional CSS to adjust `.nt-player__ratio` or `.novatube-player` if needed.
 
 ### How do I add an ad network script?
 
@@ -215,7 +236,8 @@ No. Ratings and view counts are stored as post meta. Views are counted once per 
 ## Credits
 
 - Icons: inline SVG drawn for this theme, based on common interface metaphors.
-- Fonts: the visitor’s system font stack by default, with Inter used when available.
+- UI system: [Astryx](https://astryx.atmeta.com/components) core and neutral theme, vendored as compiled CSS under `assets/vendor/astryx/`.
+- Fonts: Figtree from the Astryx neutral theme package, with a system fallback stack.
 - Placeholder artwork: `assets/img/placeholder.svg`, original for this theme.
 
 ## Changelog
@@ -223,6 +245,10 @@ No. Ratings and view counts are stored as post meta. Views are counted once per 
 ### 1.0.0
 
 - Initial release.
+- Clean `nt-` component layer built on Astryx neutral tokens, Figtree, dark/light modes.
+- Reference-inspired homepage and single video page layouts.
+- Video detail fields for release data, previews, specs, downloads, and spare links.
+- Instant search, saved videos, live ratings, lightbox, and AJAX load more.
 
 ## License
 

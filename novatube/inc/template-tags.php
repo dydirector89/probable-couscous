@@ -46,6 +46,27 @@ function novatube_icon( $name, $size = 20 ) {
 		'calendar'    => '<rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 3v4M16 3v4M3 10h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
 		'flag'        => '<path d="M5 21V4m0 1h13l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
 		'grid'        => '<rect x="4" y="4" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="4" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="4" y="14" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/>',
+		'list'        => '<path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+		'bookmark'    => '<path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.6L6 21V4.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+		'download'    => '<path d="M12 3v12m0 0-4.5-4.5M12 15l4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+		'sun'         => '<circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+		'moon'        => '<path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+		'filter'      => '<path d="M4 6h16M7 12h10M10 18h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+		'copy'        => '<rect x="9" y="9" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 5.5A1.5 1.5 0 0 0 13.5 4h-8A1.5 1.5 0 0 0 4 5.5v8A1.5 1.5 0 0 0 5.5 15" fill="none" stroke="currentColor" stroke-width="2"/>',
+		'chevron-left'=> '<path d="m15 6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+		'chevron-right'=>'<path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+		'info'        => '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v5m0-8h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+		'tag'         => '<path d="m20 13-7 7a2 2 0 0 1-2.8 0L3 12.8V4h8.8L20 12.2a2 2 0 0 1 0 2.8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.5" fill="currentColor"/>',
+		'folder'      => '<path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h3.2a2 2 0 0 1 1.6.8l1 1.2h7.2A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5v-9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+		'disc'        => '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/>',
+		'monitor'     => '<rect x="3" y="4" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+		'volume'      => '<path d="M11 5 6.5 9H3v6h3.5L11 19V5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M15 9.5a4 4 0 0 1 0 5M18 7a8 8 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+		'plus'        => '<path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+		'arrow-down'  => '<path d="M12 5v14m0 0 6-6m-6 6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+		'check-circle'=> '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="m8 12.5 2.7 2.7L16.5 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+		'history'     => '<path d="M3 12a9 9 0 1 0 2.6-6.4M3 4v5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8v4.5l3 1.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+		'sliders'     => '<path d="M4 7h9M17 7h3M4 17h3M11 17h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="15" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="2"/>',
+		'expand'      => '<path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
 	);
 
 	if ( ! isset( $icons[ $name ] ) ) {
@@ -283,9 +304,9 @@ function novatube_get_video_embed( $post_id = 0 ) {
 	$html    = '';
 
 	if ( '' === $embed ) {
-		$html = '<div class="player-empty">' . novatube_icon( 'film', 42 ) . '<p>' . esc_html__( 'No video source has been added yet.', 'novatube' ) . '</p>';
+		$html = '<div class="nt-player__empty">' . novatube_icon( 'film', 42 ) . '<p>' . esc_html__( 'No video source has been added yet.', 'novatube' ) . '</p>';
 		if ( $poster ) {
-			$html = '<div class="player-empty player-empty--poster" style="background-image:url(' . esc_url( $poster ) . ');"><span>' . esc_html__( 'Video coming soon', 'novatube' ) . '</span></div>';
+			$html = '<div class="nt-player__empty nt-player__empty--poster" style="background-image:url(' . esc_url( $poster ) . ');"><span>' . esc_html__( 'Video coming soon', 'novatube' ) . '</span></div>';
 		}
 		return $html;
 	}
@@ -362,7 +383,7 @@ function novatube_get_term_links( $post_id, $taxonomy, $limit = 4 ) {
 			continue;
 		}
 
-		$links[] = '<a class="chip" href="' . esc_url( $link ) . '">' . esc_html( $term->name ) . '</a>';
+		$links[] = '<a class="nt-chip" href="' . esc_url( $link ) . '">' . esc_html( $term->name ) . '</a>';
 	}
 
 	return implode( '', $links );
@@ -582,7 +603,7 @@ function novatube_breadcrumbs() {
 		return;
 	}
 
-	echo '<nav class="breadcrumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'novatube' ) . '"><ol>';
+	echo '<nav class="nt-breadcrumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'novatube' ) . '"><ol>';
 
 	foreach ( $items as $index => $item ) {
 		$is_last = ( count( $items ) - 1 ) === $index;
@@ -629,10 +650,10 @@ function novatube_pagination( $query = null ) {
 		return;
 	}
 	?>
-	<nav class="pagination" aria-label="<?php esc_attr_e( 'Pagination', 'novatube' ); ?>">
-		<ul class="pagination__list">
+	<nav class="nt-pagination" aria-label="<?php esc_attr_e( 'Pagination', 'novatube' ); ?>">
+		<ul class="nt-pagination__list">
 			<?php foreach ( $links as $link ) : ?>
-				<li class="pagination__item"><?php echo wp_kses_post( $link ); ?></li>
+				<li><?php echo wp_kses_post( $link ); ?></li>
 			<?php endforeach; ?>
 		</ul>
 	</nav>
@@ -658,21 +679,22 @@ function novatube_category_chips() {
 	}
 
 	$current = is_tax( 'video_category' ) ? get_queried_object_id() : 0;
+	$is_all  = is_front_page() || is_post_type_archive( 'video' );
 	?>
-	<div class="category-chips">
-		<div class="container category-chips__inner">
-			<a class="chip chip--filter <?php echo 0 === $current && is_post_type_archive( 'video' ) ? 'is-active' : ''; ?>" href="<?php echo esc_url( novatube_videos_url() ); ?>">
-				<?php esc_html_e( 'All', 'novatube' ); ?>
+	<div class="nt-category-rail">
+		<div class="nt-container nt-category-rail__inner">
+			<a class="nt-chip <?php echo $is_all && ! $current ? 'is-active' : ''; ?>" href="<?php echo esc_url( novatube_videos_url() ); ?>">
+				<?php esc_html_e( 'All videos', 'novatube' ); ?>
 			</a>
 			<?php foreach ( $terms as $term ) : ?>
-				<a class="chip chip--filter <?php echo (int) $current === (int) $term->term_id ? 'is-active' : ''; ?>" href="<?php echo esc_url( get_term_link( $term ) ); ?>">
+				<a class="nt-chip <?php echo (int) $current === (int) $term->term_id ? 'is-active' : ''; ?>" href="<?php echo esc_url( get_term_link( $term ) ); ?>">
 					<?php echo esc_html( $term->name ); ?>
-					<span class="chip__count"><?php echo esc_html( number_format_i18n( $term->count ) ); ?></span>
+					<span class="nt-chip__count"><?php echo esc_html( number_format_i18n( $term->count ) ); ?></span>
 				</a>
 			<?php endforeach; ?>
-			<a class="chip chip--more" href="<?php echo esc_url( novatube_videos_url() ); ?>">
+			<a class="nt-chip nt-chip--accent" href="<?php echo esc_url( novatube_videos_url() ); ?>">
 				<?php esc_html_e( 'Browse all', 'novatube' ); ?>
-				<?php novatube_the_icon( 'arrow-right', 15 ); ?>
+				<?php novatube_the_icon( 'arrow-right', 14 ); ?>
 			</a>
 		</div>
 	</div>
@@ -680,56 +702,217 @@ function novatube_category_chips() {
 }
 
 /**
+ * Get the items assigned to a nav menu location.
+ *
+ * @param string $location Menu location.
+ * @return array<int, WP_Post>
+ */
+function novatube_get_nav_menu_items( $location = 'primary' ) {
+	$locations = get_nav_menu_locations();
+
+	if ( empty( $locations[ $location ] ) ) {
+		return array();
+	}
+
+	$items = wp_get_nav_menu_items( (int) $locations[ $location ] );
+
+	return is_array( $items ) ? $items : array();
+}
+
+/**
+ * Whether a menu item is the current item.
+ *
+ * @param WP_Post $item Menu item.
+ * @return bool
+ */
+function novatube_nav_item_is_current( $item ) {
+	$classes = (array) $item->classes;
+
+	foreach ( array( 'current-menu-item', 'current_page_item', 'current-menu-parent', 'current_page_parent', 'current-menu-ancestor' ) as $class ) {
+		if ( in_array( $class, $classes, true ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * Render the primary navigation as Astryx-style nav items.
+ */
+function novatube_primary_nav() {
+	$items = novatube_get_nav_menu_items( 'primary' );
+
+	if ( empty( $items ) ) {
+		novatube_primary_nav_fallback();
+		return;
+	}
+
+	$top      = array();
+	$children = array();
+
+	foreach ( $items as $item ) {
+		if ( (int) $item->menu_item_parent ) {
+			$children[ (int) $item->menu_item_parent ][] = $item;
+		} else {
+			$top[] = $item;
+		}
+	}
+
+	foreach ( $top as $item ) {
+		$current = novatube_nav_item_is_current( $item );
+		$sub     = isset( $children[ $item->ID ] ) ? $children[ $item->ID ] : array();
+
+		if ( $sub ) {
+			?>
+			<details class="nt-nav__item<?php echo $current ? ' is-current' : ''; ?>">
+				<summary class="nt-nav__summary"><?php echo esc_html( $item->title ); ?><?php novatube_the_icon( 'chevron', 14 ); ?></summary>
+				<div class="nt-nav__panel nt-nav__panel--single">
+					<a class="nt-nav__panel-link" href="<?php echo esc_url( $item->url ); ?>"><?php esc_html_e( 'Overview', 'novatube' ); ?></a>
+					<?php foreach ( $sub as $child ) : ?>
+						<a class="nt-nav__panel-link" href="<?php echo esc_url( $child->url ); ?>"><?php echo esc_html( $child->title ); ?></a>
+					<?php endforeach; ?>
+				</div>
+			</details>
+			<?php
+		} else {
+			?>
+			<div class="nt-nav__item<?php echo $current ? ' is-current' : ''; ?>">
+				<a class="nt-nav__link" href="<?php echo esc_url( $item->url ); ?>"><?php echo esc_html( $item->title ); ?></a>
+			</div>
+			<?php
+		}
+	}
+}
+
+/**
  * Primary menu fallback.
  *
- * @param array $args Menu args.
+ * @param array $args Menu args (unused, kept for compatibility).
  */
 function novatube_primary_nav_fallback( $args = array() ) {
-	$menu_class = isset( $args['menu_class'] ) ? $args['menu_class'] : 'nav-list';
-	$terms      = get_terms(
+	unset( $args );
+
+	$terms   = get_terms(
 		array(
 			'taxonomy'   => 'video_category',
 			'hide_empty' => false,
-			'number'     => 6,
+			'number'     => 8,
 			'orderby'    => 'count',
 			'order'      => 'DESC',
 		)
 	);
-	$current_sort = isset( $_GET['sort'] ) ? sanitize_key( wp_unslash( $_GET['sort'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	$blog_id = (int) get_option( 'page_for_posts' );
 	?>
-	<ul class="<?php echo esc_attr( $menu_class ); ?>">
-		<li class="menu-item<?php echo is_front_page() ? ' current-menu-item' : ''; ?>">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"<?php echo is_front_page() ? ' aria-current="page"' : ''; ?>><?php esc_html_e( 'Home', 'novatube' ); ?></a>
-		</li>
-		<li class="menu-item<?php echo is_post_type_archive( 'video' ) && ! $current_sort ? ' current-menu-item' : ''; ?>">
-			<a href="<?php echo esc_url( novatube_videos_url() ); ?>"><?php esc_html_e( 'Videos', 'novatube' ); ?></a>
-		</li>
-		<?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
-			<li class="menu-item menu-item-has-children">
-				<a href="<?php echo esc_url( novatube_videos_url() ); ?>">
-					<?php esc_html_e( 'Categories', 'novatube' ); ?>
-					<?php novatube_the_icon( 'chevron', 14 ); ?>
+	<div class="nt-nav__item<?php echo is_front_page() ? ' is-current' : ''; ?>">
+		<a class="nt-nav__link" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'novatube' ); ?></a>
+	</div>
+	<div class="nt-nav__item<?php echo is_post_type_archive( 'video' ) && ! isset( $_GET['sort'] ) ? ' is-current' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>">
+		<a class="nt-nav__link" href="<?php echo esc_url( novatube_videos_url() ); ?>"><?php esc_html_e( 'Videos', 'novatube' ); ?></a>
+	</div>
+	<?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
+		<details class="nt-nav__item">
+			<summary class="nt-nav__summary"><?php esc_html_e( 'Categories', 'novatube' ); ?><?php novatube_the_icon( 'chevron', 14 ); ?></summary>
+			<div class="nt-nav__panel">
+				<?php foreach ( $terms as $term ) : ?>
+					<a class="nt-nav__panel-link" href="<?php echo esc_url( get_term_link( $term ) ); ?>">
+						<?php echo esc_html( $term->name ); ?>
+						<span><?php echo esc_html( number_format_i18n( $term->count ) ); ?></span>
+					</a>
+				<?php endforeach; ?>
+				<a class="nt-nav__panel-all" href="<?php echo esc_url( novatube_videos_url() ); ?>">
+					<?php esc_html_e( 'Browse all videos', 'novatube' ); ?>
+					<?php novatube_the_icon( 'arrow-right', 14 ); ?>
 				</a>
-				<ul class="sub-menu">
-					<?php foreach ( $terms as $term ) : ?>
-						<li class="menu-item<?php echo is_tax( 'video_category', $term->term_id ) ? ' current-menu-item' : ''; ?>">
-							<a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?></a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+			</div>
+		</details>
+	<?php endif; ?>
+	<div class="nt-nav__item">
+		<a class="nt-nav__link" href="<?php echo esc_url( add_query_arg( 'sort', 'popular', novatube_videos_url() ) ); ?>"><?php esc_html_e( 'Popular', 'novatube' ); ?></a>
+	</div>
+	<div class="nt-nav__item">
+		<a class="nt-nav__link" href="<?php echo esc_url( add_query_arg( 'sort', 'rating', novatube_videos_url() ) ); ?>"><?php esc_html_e( 'Top rated', 'novatube' ); ?></a>
+	</div>
+	<?php if ( $blog_id ) : ?>
+		<div class="nt-nav__item<?php echo is_home() ? ' is-current' : ''; ?>">
+			<a class="nt-nav__link" href="<?php echo esc_url( get_permalink( $blog_id ) ); ?>"><?php echo esc_html( get_the_title( $blog_id ) ); ?></a>
+		</div>
+	<?php endif; ?>
+	<?php
+}
+
+/**
+ * Render the mobile drawer navigation.
+ */
+function novatube_drawer_nav() {
+	$items = novatube_get_nav_menu_items( 'primary' );
+
+	if ( $items ) {
+		$top      = array();
+		$children = array();
+
+		foreach ( $items as $item ) {
+			if ( (int) $item->menu_item_parent ) {
+				$children[ (int) $item->menu_item_parent ][] = $item;
+			} else {
+				$top[] = $item;
+			}
+		}
+
+		echo '<ul class="nt-drawer__nav">';
+
+		foreach ( $top as $item ) {
+			$sub = isset( $children[ $item->ID ] ) ? $children[ $item->ID ] : array();
+
+			if ( $sub ) {
+				echo '<li><details>';
+				echo '<summary>' . esc_html( $item->title ) . novatube_icon( 'chevron', 15 ) . '</summary>';
+				echo '<ul class="nt-drawer__sub">';
+				echo '<li><a href="' . esc_url( $item->url ) . '">' . esc_html__( 'Overview', 'novatube' ) . '</a></li>';
+				foreach ( $sub as $child ) {
+					echo '<li><a href="' . esc_url( $child->url ) . '">' . esc_html( $child->title ) . '</a></li>';
+				}
+				echo '</ul></details></li>';
+			} else {
+				echo '<li><a href="' . esc_url( $item->url ) . '">' . esc_html( $item->title ) . '</a></li>';
+			}
+		}
+
+		echo '</ul>';
+		return;
+	}
+
+	$terms = get_terms(
+		array(
+			'taxonomy'   => 'video_category',
+			'hide_empty' => false,
+			'number'     => 10,
+			'orderby'    => 'count',
+			'order'      => 'DESC',
+		)
+	);
+	$blog_id = (int) get_option( 'page_for_posts' );
+	?>
+	<ul class="nt-drawer__nav">
+		<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'novatube' ); ?><?php novatube_the_icon( 'chevron-right', 15 ); ?></a></li>
+		<li><a href="<?php echo esc_url( novatube_videos_url() ); ?>"><?php esc_html_e( 'All videos', 'novatube' ); ?><?php novatube_the_icon( 'chevron-right', 15 ); ?></a></li>
+		<?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
+			<li>
+				<details>
+					<summary><?php esc_html_e( 'Categories', 'novatube' ); ?><?php novatube_the_icon( 'chevron', 15 ); ?></summary>
+					<ul class="nt-drawer__sub">
+						<?php foreach ( $terms as $term ) : ?>
+							<li><a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?><span class="nt-count"><?php echo esc_html( number_format_i18n( $term->count ) ); ?></span></a></li>
+						<?php endforeach; ?>
+					</ul>
+				</details>
 			</li>
 		<?php endif; ?>
-		<li class="menu-item">
-			<a href="<?php echo esc_url( add_query_arg( 'sort', 'popular', novatube_videos_url() ) ); ?>"><?php esc_html_e( 'Popular', 'novatube' ); ?></a>
-		</li>
-		<?php
-		$blog_id = (int) get_option( 'page_for_posts' );
-
-		if ( $blog_id ) :
-			?>
-			<li class="menu-item<?php echo is_home() ? ' current-menu-item' : ''; ?>">
-				<a href="<?php echo esc_url( get_permalink( $blog_id ) ); ?>"><?php echo esc_html( get_the_title( $blog_id ) ); ?></a>
-			</li>
+		<li><a href="<?php echo esc_url( add_query_arg( 'sort', 'popular', novatube_videos_url() ) ); ?>"><?php esc_html_e( 'Most viewed', 'novatube' ); ?><?php novatube_the_icon( 'fire', 15 ); ?></a></li>
+		<li><a href="<?php echo esc_url( add_query_arg( 'sort', 'rating', novatube_videos_url() ) ); ?>"><?php esc_html_e( 'Top rated', 'novatube' ); ?><?php novatube_the_icon( 'star', 15 ); ?></a></li>
+		<li><a href="<?php echo esc_url( novatube_random_url() ); ?>"><?php esc_html_e( 'Surprise me', 'novatube' ); ?><?php novatube_the_icon( 'shuffle', 15 ); ?></a></li>
+		<?php if ( $blog_id ) : ?>
+			<li><a href="<?php echo esc_url( get_permalink( $blog_id ) ); ?>"><?php echo esc_html( get_the_title( $blog_id ) ); ?><?php novatube_the_icon( 'chevron-right', 15 ); ?></a></li>
 		<?php endif; ?>
 	</ul>
 	<?php
@@ -753,10 +936,10 @@ function novatube_footer_nav_fallback() {
 		return;
 	}
 
-	echo '<ul class="footer-menu">';
+	echo '<ul class="nt-footer__list">';
 
 	foreach ( $terms as $term ) {
-		echo '<li><a href="' . esc_url( get_term_link( $term ) ) . '">' . esc_html( $term->name ) . '</a></li>';
+		echo '<li><a href="' . esc_url( get_term_link( $term ) ) . '">' . esc_html( $term->name ) . '<span class="nt-count">' . esc_html( number_format_i18n( $term->count ) ) . '</span></a></li>';
 	}
 
 	echo '</ul>';
@@ -790,11 +973,11 @@ function novatube_social_links() {
 			continue;
 		}
 
-		$links[] = '<a class="social-link" href="' . esc_url( $url ) . '" target="_blank" rel="noopener noreferrer nofollow" aria-label="' . esc_attr( $network['label'] ) . '">' . novatube_icon( $network['icon'], 18 ) . '</a>';
+		$links[] = '<a class="nt-social" href="' . esc_url( $url ) . '" target="_blank" rel="noopener noreferrer nofollow" aria-label="' . esc_attr( $network['label'] ) . '">' . novatube_icon( $network['icon'], 18 ) . '</a>';
 	}
 
 	if ( $links ) {
-		echo '<div class="social-links">' . implode( '', $links ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above.
+		echo '<div class="nt-socials">' . implode( '', $links ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above.
 	}
 }
 
@@ -821,7 +1004,7 @@ function novatube_get_ad( $location = 'sidebar' ) {
 		'data-full-width-responsive' => true,
 	);
 
-	return '<aside class="ad-slot ad-slot--' . esc_attr( $location ) . '"><span class="ad-slot__label">' . esc_html__( 'Advertisement', 'novatube' ) . '</span><div class="ad-slot__inner">' . wp_kses( $html, $allowed ) . '</div></aside>';
+	return '<aside class="nt-ad nt-ad--' . esc_attr( $location ) . '"><span class="nt-ad__label">' . esc_html__( 'Advertisement', 'novatube' ) . '</span><div class="nt-ad__inner">' . wp_kses( $html, $allowed ) . '</div></aside>';
 }
 
 /**
@@ -857,12 +1040,12 @@ function novatube_sort_tabs() {
 		'oldest'  => __( 'Oldest', 'novatube' ),
 	);
 	?>
-	<div class="sort-tabs" role="navigation" aria-label="<?php esc_attr_e( 'Sort videos', 'novatube' ); ?>">
+	<div class="nt-segmented" role="navigation" aria-label="<?php esc_attr_e( 'Sort videos', 'novatube' ); ?>">
 		<?php foreach ( $tabs as $key => $label ) : ?>
 			<?php
 			$url = 'latest' === $key ? $base : add_query_arg( 'sort', $key, $base );
 			?>
-			<a class="sort-tab <?php echo $current === $key ? 'is-active' : ''; ?>" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $label ); ?></a>
+			<a class="nt-segmented__item <?php echo $current === $key ? 'is-active' : ''; ?>" href="<?php echo esc_url( $url ); ?>"<?php echo $current === $key ? ' aria-current="page"' : ''; ?>><?php echo esc_html( $label ); ?></a>
 		<?php endforeach; ?>
 	</div>
 	<?php
@@ -903,51 +1086,7 @@ function novatube_sort_video_archive( $query ) {
 }
 add_action( 'pre_get_posts', 'novatube_sort_video_archive' );
 
-/**
- * Count a video view once per browser.
- */
-function novatube_count_view() {
-	if ( ! is_singular( 'video' ) || is_preview() || is_admin() ) {
-		return;
-	}
 
-	$post_id = get_queried_object_id();
-
-	if ( ! $post_id || current_user_can( 'edit_post', $post_id ) ) {
-		return;
-	}
-
-	$viewed = array();
-
-	if ( isset( $_COOKIE['novatube_viewed'] ) ) {
-		$viewed = array_filter( array_map( 'absint', explode( ',', sanitize_text_field( wp_unslash( $_COOKIE['novatube_viewed'] ) ) ) ) );
-	}
-
-	if ( in_array( $post_id, $viewed, true ) ) {
-		return;
-	}
-
-	$views = novatube_get_views( $post_id ) + 1;
-	update_post_meta( $post_id, '_novatube_views', $views );
-
-	$viewed[] = $post_id;
-	$viewed   = array_slice( array_unique( $viewed ), -40 );
-
-	if ( ! headers_sent() ) {
-		setcookie(
-			'novatube_viewed',
-			implode( ',', $viewed ),
-			array(
-				'expires'  => time() + MONTH_IN_SECONDS,
-				'path'     => '/',
-				'secure'   => is_ssl(),
-				'httponly' => true,
-				'samesite' => 'Lax',
-			)
-		);
-	}
-}
-add_action( 'wp', 'novatube_count_view' );
 
 /**
  * Print VideoObject structured data.
@@ -1057,7 +1196,7 @@ function novatube_rating_badge( $post_id = 0 ) {
 		return;
 	}
 
-	echo '<span class="rating-badge">' . novatube_icon( 'star', 13 ) . '<span>' . esc_html( number_format_i18n( $rating['rating'], 1 ) ) . '</span></span>';
+	echo '<span class="nt-badge nt-badge--yellow">' . novatube_icon( 'star', 12 ) . '<span>' . esc_html( number_format_i18n( $rating['rating'], 1 ) ) . '</span></span>';
 }
 
 /**
@@ -1070,21 +1209,17 @@ function novatube_rating_widget( $post_id = 0 ) {
 	$rating  = novatube_get_rating( $post_id );
 	$rounded = (int) round( $rating['rating'] );
 	?>
-	<div class="rating-widget" data-video-id="<?php echo esc_attr( $post_id ); ?>">
-		<div class="rating-widget__stars" role="group" aria-label="<?php esc_attr_e( 'Rate this video', 'novatube' ); ?>">
+	<div class="nt-rating" data-video-id="<?php echo esc_attr( $post_id ); ?>">
+		<div class="nt-rating__stars" role="group" aria-label="<?php esc_attr_e( 'Rate this video', 'novatube' ); ?>">
 			<?php for ( $i = 1; $i <= 5; $i++ ) : ?>
-				<button type="button" class="rating-star <?php echo $i <= $rounded ? 'is-filled' : ''; ?>" data-value="<?php echo esc_attr( $i ); ?>" aria-label="<?php echo esc_attr( sprintf( /* translators: %d: star rating. */ __( 'Rate %d out of 5', 'novatube' ), $i ) ); ?>">
+				<button type="button" class="nt-star <?php echo $i <= $rounded ? 'is-filled' : ''; ?>" data-value="<?php echo esc_attr( $i ); ?>" aria-label="<?php echo esc_attr( sprintf( /* translators: %d: star rating. */ __( 'Rate %d out of 5', 'novatube' ), $i ) ); ?>">
 					<?php novatube_the_icon( 'star', 18 ); ?>
 				</button>
 			<?php endfor; ?>
 		</div>
-		<span class="rating-widget__text">
-			<strong class="js-rating-value"><?php echo esc_html( number_format_i18n( $rating['rating'], 1 ) ); ?></strong>
-			<span>/ 5</span>
-			<span class="rating-widget__count">(<span class="js-rating-count"><?php echo esc_html( number_format_i18n( $rating['count'] ) ); ?></span>
-				<span class="js-rating-label"><?php echo esc_html( _n( 'vote', 'votes', $rating['count'], 'novatube' ) ); ?></span>)</span>
-		</span>
-		<span class="rating-widget__hint"><?php esc_html_e( 'Click a star to rate', 'novatube' ); ?></span>
+		<span class="nt-rating__value"><span class="js-rating-value"><?php echo esc_html( number_format_i18n( $rating['rating'], 1 ) ); ?></span><span>/ 5</span></span>
+		<span class="nt-rating__count">(<span class="js-rating-count"><?php echo esc_html( number_format_i18n( $rating['count'] ) ); ?></span> <span class="js-rating-label"><?php echo esc_html( _n( 'vote', 'votes', $rating['count'], 'novatube' ) ); ?></span>)</span>
+		<span class="nt-rating__hint js-rating-hint"><?php esc_html_e( 'Click a star to rate', 'novatube' ); ?></span>
 	</div>
 	<?php
 }
@@ -1097,22 +1232,22 @@ function novatube_default_sidebar() {
 
 	if ( $popular ) :
 		?>
-		<section class="widget widget--trending">
-			<h2 class="widget-title"><?php novatube_the_icon( 'fire', 17 ); ?><?php esc_html_e( 'Trending now', 'novatube' ); ?></h2>
-			<ol class="trending-list">
+		<section class="nt-widget nt-widget--trending">
+			<h2 class="nt-widget__title"><?php novatube_the_icon( 'fire', 17 ); ?><?php esc_html_e( 'Trending now', 'novatube' ); ?></h2>
+			<ol class="nt-trending">
 				<?php foreach ( $popular as $index => $video_id ) : ?>
-					<li class="trending-item">
-						<span class="trending-item__rank"><?php echo esc_html( number_format_i18n( $index + 1 ) ); ?></span>
-						<a class="trending-item__thumb" href="<?php echo esc_url( get_permalink( $video_id ) ); ?>" tabindex="-1" aria-hidden="true">
+					<li class="nt-trending__item">
+						<span class="nt-trending__rank"><?php echo esc_html( number_format_i18n( $index + 1 ) ); ?></span>
+						<a class="nt-trending__thumb" href="<?php echo esc_url( get_permalink( $video_id ) ); ?>" tabindex="-1" aria-hidden="true">
 							<?php echo novatube_get_thumbnail( $video_id, 'novatube-thumb' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped helper. ?>
 							<?php $duration = novatube_get_duration( $video_id ); ?>
 							<?php if ( $duration ) : ?>
-								<span class="badge badge--duration"><?php echo esc_html( $duration ); ?></span>
+								<span class="nt-badge nt-badge--duration"><?php echo esc_html( $duration ); ?></span>
 							<?php endif; ?>
 						</a>
-						<div class="trending-item__body">
-							<h3 class="trending-item__title"><a href="<?php echo esc_url( get_permalink( $video_id ) ); ?>"><?php echo esc_html( get_the_title( $video_id ) ); ?></a></h3>
-							<span class="trending-item__meta"><?php novatube_the_icon( 'eye', 13 ); ?><?php echo esc_html( novatube_format_count( novatube_get_views( $video_id ) ) ); ?></span>
+						<div class="nt-trending__body">
+							<h3 class="nt-trending__title"><a href="<?php echo esc_url( get_permalink( $video_id ) ); ?>"><?php echo esc_html( get_the_title( $video_id ) ); ?></a></h3>
+							<span class="nt-trending__meta"><?php novatube_the_icon( 'eye', 12 ); ?><?php echo esc_html( novatube_format_count( novatube_get_views( $video_id ) ) ); ?></span>
 						</div>
 					</li>
 				<?php endforeach; ?>
@@ -1133,12 +1268,12 @@ function novatube_default_sidebar() {
 
 	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
 		?>
-		<section class="widget widget--categories">
-			<h2 class="widget-title"><?php novatube_the_icon( 'grid', 17 ); ?><?php esc_html_e( 'Categories', 'novatube' ); ?></h2>
-			<ul class="category-list">
+		<section class="nt-widget nt-widget--categories">
+			<h2 class="nt-widget__title"><?php novatube_the_icon( 'grid', 17 ); ?><?php esc_html_e( 'Categories', 'novatube' ); ?></h2>
+			<ul class="nt-cat-list">
 				<?php foreach ( $terms as $term ) : ?>
 					<li>
-						<a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?><span><?php echo esc_html( number_format_i18n( $term->count ) ); ?></span></a>
+						<a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?><span class="nt-cat-list__count"><?php echo esc_html( number_format_i18n( $term->count ) ); ?></span></a>
 					</li>
 				<?php endforeach; ?>
 			</ul>

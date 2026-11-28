@@ -1,7 +1,7 @@
 /*
 Theme Name: NovaTube
 Author: NovaTube Studio
-Description: A fast, dark, video-first WordPress theme for tube sites. Includes a video post type, categories, models, HD badges, ratings, AJAX load more, ad slots, an age gate, and full customization through the Customizer.
+Description: A clean, minimal, feature-rich video theme with an Astryx-inspired component system, dark and light modes, instant search, saved videos, reference-style video pages, ratings, AJAX load more, ad slots, and an age gate.
 Version: 1.0.0
 Requires at least: 6.2
 Tested up to: 7.1
@@ -9,7 +9,7 @@ Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: novatube
-Tags: dark, entertainment, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, right-sidebar, block-styles, wide-blocks
+Tags: dark, light, entertainment, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, right-sidebar, block-styles, wide-blocks
 */
 
-/* The compiled theme styles live in assets/css/main.css. */
+/* Styles are loaded from assets/vendor/astryx and assets/css/{base,components,templates}.css. */

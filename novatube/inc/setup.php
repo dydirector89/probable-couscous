@@ -73,9 +73,9 @@ function novatube_widgets_init() {
 			'name'          => esc_html__( 'Main Sidebar', 'novatube' ),
 			'id'            => 'novatube-sidebar',
 			'description'   => esc_html__( 'Shown beside video grids and video pages.', 'novatube' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'before_widget' => '<section id="%1$s" class="nt-widget %2$s">',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_title'  => '<h2 class="nt-widget__title">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -86,10 +86,24 @@ add_action( 'widgets_init', 'novatube_widgets_init' );
  * Enqueue styles and scripts.
  */
 function novatube_scripts() {
-	$style_path = NOVATUBE_DIR . '/assets/css/main.css';
-	$style_ver  = file_exists( $style_path ) ? (string) filemtime( $style_path ) : NOVATUBE_VERSION;
+	$styles = array(
+		'novatube-astryx-fonts' => 'assets/vendor/astryx/fonts.css',
+		'novatube-astryx'       => 'assets/vendor/astryx/astryx.css',
+		'novatube-astryx-theme' => 'assets/vendor/astryx/theme.css',
+		'novatube-base'         => 'assets/css/base.css',
+		'novatube-components'   => 'assets/css/components.css',
+		'novatube-templates'    => 'assets/css/templates.css',
+	);
 
-	wp_enqueue_style( 'novatube-style', NOVATUBE_URI . '/assets/css/main.css', array(), $style_ver );
+	$deps = array();
+
+	foreach ( $styles as $handle => $relative ) {
+		$path = NOVATUBE_DIR . '/' . $relative;
+		$ver  = file_exists( $path ) ? (string) filemtime( $path ) : NOVATUBE_VERSION;
+
+		wp_enqueue_style( $handle, NOVATUBE_URI . '/' . $relative, $deps, $ver );
+		$deps[] = $handle;
+	}
 
 	$script_path = NOVATUBE_DIR . '/assets/js/main.js';
 	$script_ver  = file_exists( $script_path ) ? (string) filemtime( $script_path ) : NOVATUBE_VERSION;
@@ -100,11 +114,16 @@ function novatube_scripts() {
 		'novatube-script',
 		'novatubeData',
 		array(
-			'ajaxUrl'    => admin_url( 'admin-ajax.php' ),
-			'loadNonce'  => wp_create_nonce( 'novatube_ajax' ),
-			'rateNonce'  => wp_create_nonce( 'novatube_rate' ),
-			'ageGate'    => (bool) get_theme_mod( 'novatube_age_gate', true ),
-			'i18n'       => array(
+			'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
+			'homeUrl'     => home_url( '/' ),
+			'searchUrl'   => home_url( '/' ),
+			'postId'      => is_singular( 'video' ) ? (int) get_queried_object_id() : 0,
+			'loadNonce'   => wp_create_nonce( 'novatube_ajax' ),
+			'rateNonce'   => wp_create_nonce( 'novatube_rate' ),
+			'searchNonce' => wp_create_nonce( 'novatube_search' ),
+			'viewNonce'   => wp_create_nonce( 'novatube_view' ),
+			'ageGate'     => (bool) get_theme_mod( 'novatube_age_gate', true ),
+			'i18n'        => array(
 				'loading'    => esc_html__( 'Loading…', 'novatube' ),
 				'loadMore'   => esc_html__( 'Load more videos', 'novatube' ),
 				'noMore'     => esc_html__( 'You’ve reached the end.', 'novatube' ),
@@ -115,6 +134,19 @@ function novatube_scripts() {
 				'rateThanks' => esc_html__( 'Thanks for rating!', 'novatube' ),
 				'votes'      => esc_html__( 'votes', 'novatube' ),
 				'vote'       => esc_html__( 'vote', 'novatube' ),
+				'saved'      => esc_html__( 'Saved to your list', 'novatube' ),
+				'removed'    => esc_html__( 'Removed from your list', 'novatube' ),
+				'savedEmpty' => esc_html__( 'No saved videos yet. Tap the bookmark on any video to keep it here.', 'novatube' ),
+				'savedTitle' => esc_html__( 'Saved videos', 'novatube' ),
+				'save'       => esc_html__( 'Save', 'novatube' ),
+				'savedLabel' => esc_html__( 'Saved', 'novatube' ),
+				'remove'     => esc_html__( 'Remove', 'novatube' ),
+				'searching'  => esc_html__( 'Searching…', 'novatube' ),
+				'noResults'  => esc_html__( 'No matches. Try another keyword.', 'novatube' ),
+				'searchHint' => esc_html__( 'Search videos, models, categories…', 'novatube' ),
+				'close'      => esc_html__( 'Close', 'novatube' ),
+				'prev'       => esc_html__( 'Previous', 'novatube' ),
+				'next'       => esc_html__( 'Next', 'novatube' ),
 			),
 		)
 	);
@@ -129,19 +161,41 @@ add_action( 'wp_enqueue_scripts', 'novatube_scripts' );
  * Print customizer colors early in the head.
  */
 function novatube_customizer_css() {
-	$accent  = sanitize_hex_color( get_theme_mod( 'novatube_accent_color', '#ff3b6b' ) );
-	$accent2 = sanitize_hex_color( get_theme_mod( 'novatube_accent_color_2', '#ff8a3d' ) );
+	$accent  = sanitize_hex_color( get_theme_mod( 'novatube_accent_color', '#ff7a45' ) );
+	$accent2 = sanitize_hex_color( get_theme_mod( 'novatube_accent_color_2', '#ff9468' ) );
 
-	$accent  = $accent ? $accent : '#ff3b6b';
-	$accent2 = $accent2 ? $accent2 : '#ff8a3d';
+	$accent  = $accent ? $accent : '#ff7a45';
+	$accent2 = $accent2 ? $accent2 : '#ff9468';
 
-	printf(
-		'<style id="novatube-customizer-css">:root{--accent:%1$s;--accent-2:%2$s;}</style>' . "\n",
+	$rules = sprintf(
+		'--nt-accent:%1$s;--nt-accent-strong:%2$s;--nt-accent-soft:color-mix(in srgb, %1$s 14%%, transparent);--nt-accent-softer:color-mix(in srgb, %1$s 8%%, transparent);--color-accent:var(--nt-accent);--color-accent-muted:var(--nt-accent-soft);',
 		esc_html( $accent ),
 		esc_html( $accent2 )
 	);
+
+	printf(
+		'<style id="novatube-customizer-css">:root{%1$s}html[data-theme="light"]{%1$s}</style>' . "\n",
+		$rules // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped --Built from escaped colours above.
+	);
 }
 add_action( 'wp_head', 'novatube_customizer_css', 20 );
+
+/**
+ * Apply the saved colour mode before the page paints.
+ */
+function novatube_theme_mode_script() {
+	?>
+	<script id="novatube-theme-mode">
+		try {
+			var mode = window.localStorage.getItem( 'novatube_theme' );
+			document.documentElement.setAttribute( 'data-theme', mode === 'light' ? 'light' : 'dark' );
+		} catch ( e ) {
+			document.documentElement.setAttribute( 'data-theme', 'dark' );
+		}
+	</script>
+	<?php
+}
+add_action( 'wp_head', 'novatube_theme_mode_script', 1 );
 
 /**
  * Add the age-verified class before paint when the visitor already confirmed.

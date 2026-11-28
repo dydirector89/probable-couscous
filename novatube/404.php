@@ -8,18 +8,18 @@
 get_header();
 ?>
 <main id="main" class="site-main">
-	<div class="container section">
-		<div class="error-page">
-			<div class="error-page__code" aria-hidden="true">404</div>
-			<span class="eyebrow"><?php novatube_the_icon( 'film', 14 ); ?><?php esc_html_e( 'Signal lost', 'novatube' ); ?></span>
-			<h1 class="page-title"><?php esc_html_e( 'This page has left the building', 'novatube' ); ?></h1>
-			<p class="page-description"><?php esc_html_e( 'The link may be broken, or the video may have been removed. Try a search or head back to the homepage.', 'novatube' ); ?></p>
+	<div class="nt-container nt-section">
+		<div class="nt-404">
+			<div class="nt-404__code" aria-hidden="true">404</div>
+			<span class="nt-eyebrow"><?php novatube_the_icon( 'film', 13 ); ?><?php esc_html_e( 'Signal lost', 'novatube' ); ?></span>
+			<h1 class="nt-404__title"><?php esc_html_e( 'This page has left the building', 'novatube' ); ?></h1>
+			<p class="nt-404__text"><?php esc_html_e( 'The link may be broken, or the video may have been removed. Try a search or head back to the homepage.', 'novatube' ); ?></p>
 
-			<div class="error-page__search"><?php get_search_form(); ?></div>
+			<div class="nt-404__search nt-searchform nt-searchform--compact"><?php get_search_form(); ?></div>
 
-			<div class="error-page__actions">
-				<a class="btn btn--primary" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Back to homepage', 'novatube' ); ?></a>
-				<a class="btn btn--ghost" href="<?php echo esc_url( novatube_videos_url() ); ?>"><?php esc_html_e( 'Browse videos', 'novatube' ); ?></a>
+			<div class="nt-404__actions">
+				<a class="nt-btn nt-btn--primary" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Back to homepage', 'novatube' ); ?></a>
+				<a class="nt-btn nt-btn--secondary" href="<?php echo esc_url( novatube_videos_url() ); ?>"><?php esc_html_e( 'Browse videos', 'novatube' ); ?></a>
 			</div>
 		</div>
 
@@ -28,11 +28,15 @@ get_header();
 
 		if ( $novatube_popular ) :
 			?>
-			<section class="video-section" aria-labelledby="popular-404-heading">
-				<div class="section-head">
-					<h2 class="section-title" id="popular-404-heading"><?php novatube_the_icon( 'fire', 19 ); ?><?php esc_html_e( 'Popular right now', 'novatube' ); ?></h2>
+			<section aria-labelledby="popular-404-heading">
+				<div class="nt-section-head">
+					<div class="nt-section-head__main">
+						<span class="nt-eyebrow"><?php novatube_the_icon( 'fire', 13 ); ?><?php esc_html_e( 'Keep watching', 'novatube' ); ?></span>
+						<h2 class="nt-section-title" id="popular-404-heading"><?php esc_html_e( 'Popular right now', 'novatube' ); ?></h2>
+					</div>
 				</div>
-				<div class="video-grid">
+
+				<div class="nt-grid nt-grid--videos">
 					<?php foreach ( $novatube_popular as $novatube_video_id ) : ?>
 						<?php get_template_part( 'template-parts/video-card', null, array( 'post_id' => $novatube_video_id ) ); ?>
 					<?php endforeach; ?>

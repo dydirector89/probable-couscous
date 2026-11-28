@@ -33,104 +33,120 @@ while ( have_posts() ) :
 	}
 	?>
 	<main id="main" class="site-main">
-		<div class="container section">
+		<div class="nt-container nt-section">
 			<?php novatube_breadcrumbs(); ?>
 
-			<div class="layout layout--sidebar">
-				<div class="layout__main">
-					<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-single' ); ?>>
-						<header class="article-head">
-							<?php if ( ! empty( $novatube_cats ) ) : ?>
-								<a class="video-category" href="<?php echo esc_url( get_category_link( $novatube_cats[0]->term_id ) ); ?>"><?php echo esc_html( $novatube_cats[0]->name ); ?></a>
-							<?php endif; ?>
+			<div class="nt-layout">
+				<div class="nt-layout__main">
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'nt-article' ); ?>>
+						<header class="nt-article__head">
+							<span class="nt-eyebrow"><?php novatube_the_icon( 'folder', 13 ); ?><?php esc_html_e( 'Article', 'novatube' ); ?></span>
+							<h1 class="nt-article__title"><?php the_title(); ?></h1>
 
-							<h1 class="article-title"><?php the_title(); ?></h1>
-
-							<div class="article-meta">
-								<?php if ( $novatube_author ) : ?>
-									<?php echo get_avatar( $novatube_author_id, 36, '', '', array( 'class' => 'article-meta__avatar' ) ); ?>
-									<span class="article-meta__author"><?php esc_html_e( 'By', 'novatube' ); ?> <a href="<?php echo esc_url( get_author_posts_url( $novatube_author_id ) ); ?>"><?php echo esc_html( $novatube_author ); ?></a></span>
-									<span class="meta-dot" aria-hidden="true"></span>
+							<div class="nt-article__meta">
+								<?php if ( ! empty( $novatube_cats ) ) : ?>
+									<a class="nt-chip" href="<?php echo esc_url( get_category_link( $novatube_cats[0]->term_id ) ); ?>"><?php echo esc_html( $novatube_cats[0]->name ); ?></a>
+									<span class="nt-dot" aria-hidden="true"></span>
 								<?php endif; ?>
+
+								<?php if ( $novatube_author ) : ?>
+									<span><?php novatube_the_icon( 'user', 13 ); ?><?php echo esc_html__( 'by', 'novatube' ) . ' ' . esc_html( $novatube_author ); ?></span>
+									<span class="nt-dot" aria-hidden="true"></span>
+								<?php endif; ?>
+
 								<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
-								<span class="meta-dot" aria-hidden="true"></span>
+								<span class="nt-dot" aria-hidden="true"></span>
 								<span><?php echo esc_html( novatube_reading_time( $novatube_post_id ) ); ?></span>
+
 								<?php if ( comments_open() || get_comments_number() ) : ?>
-									<span class="meta-dot" aria-hidden="true"></span>
+									<span class="nt-dot" aria-hidden="true"></span>
 									<a href="#comments"><?php echo esc_html( get_comments_number_text( __( 'No comments', 'novatube' ), __( '1 comment', 'novatube' ), __( '% comments', 'novatube' ) ) ); ?></a>
 								<?php endif; ?>
 							</div>
 						</header>
 
 						<?php if ( has_post_thumbnail() ) : ?>
-							<figure class="article-hero">
-								<?php the_post_thumbnail( 'novatube-hero', array( 'class' => 'article-hero__image' ) ); ?>
+							<figure class="nt-article__thumb">
+								<?php the_post_thumbnail( 'novatube-hero' ); ?>
 							</figure>
 						<?php endif; ?>
 
-						<div class="entry-content article-content">
+						<div class="nt-prose">
 							<?php
 							the_content();
 
 							wp_link_pages(
 								array(
-									'before' => '<nav class="page-links">' . esc_html__( 'Pages:', 'novatube' ),
+									'before' => '<nav class="nt-pagination">' . esc_html__( 'Pages:', 'novatube' ),
 									'after'  => '</nav>',
 								)
 							);
 							?>
 						</div>
 
-						<footer class="article-footer">
-							<?php
-							$novatube_tags = get_the_tag_list( '', '' );
-							if ( $novatube_tags ) :
-								?>
-								<div class="article-tags">
-									<span class="video-taxonomy__label"><?php esc_html_e( 'Tags', 'novatube' ); ?></span>
-									<div class="chips"><?php echo wp_kses_post( $novatube_tags ); ?></div>
-								</div>
-							<?php endif; ?>
+						<?php
+						$novatube_tags = get_the_tag_list( '', '' );
 
-							<div class="article-share">
-								<span><?php esc_html_e( 'Share:', 'novatube' ); ?></span>
-								<button type="button" class="icon-btn js-copy-link" data-url="<?php echo esc_url( get_permalink() ); ?>" aria-label="<?php esc_attr_e( 'Copy link', 'novatube' ); ?>"><?php novatube_the_icon( 'link', 16 ); ?></button>
-								<a class="icon-btn" href="<?php echo esc_url( 'https://twitter.com/intent/tweet?url=' . $novatube_share_url . '&text=' . $novatube_share_txt ); ?>" target="_blank" rel="noopener noreferrer nofollow" aria-label="<?php esc_attr_e( 'Share on X', 'novatube' ); ?>"><?php novatube_the_icon( 'x', 16 ); ?></a>
-								<a class="icon-btn" href="<?php echo esc_url( 'mailto:?subject=' . $novatube_share_txt . '&body=' . $novatube_share_url ); ?>" aria-label="<?php esc_attr_e( 'Share by email', 'novatube' ); ?>"><?php novatube_the_icon( 'mail', 17 ); ?></a>
-							</div>
-						</footer>
-
-						<?php edit_post_link( __( 'Edit article', 'novatube' ), '<p class="edit-link">', '</p>' ); ?>
-
-						<?php if ( $novatube_author ) : ?>
-							<div class="author-box">
-								<?php echo get_avatar( $novatube_author_id, 72, '', '', array( 'class' => 'author-box__avatar' ) ); ?>
-								<div class="author-box__body">
-									<span class="author-box__label"><?php esc_html_e( 'Written by', 'novatube' ); ?></span>
-									<h2 class="author-box__name"><a href="<?php echo esc_url( get_author_posts_url( $novatube_author_id ) ); ?>"><?php echo esc_html( $novatube_author ); ?></a></h2>
-									<?php if ( get_the_author_meta( 'description', $novatube_author_id ) ) : ?>
-										<p><?php echo esc_html( get_the_author_meta( 'description', $novatube_author_id ) ); ?></p>
-									<?php endif; ?>
+						if ( $novatube_tags ) :
+							?>
+							<div class="nt-taxonomies">
+								<div class="nt-taxonomy">
+									<span class="nt-taxonomy__label"><?php esc_html_e( 'Tags', 'novatube' ); ?></span>
+									<div class="nt-taxonomy__list nt-tags"><?php echo wp_kses_post( $novatube_tags ); ?></div>
 								</div>
 							</div>
+						<?php endif; ?>
+
+						<div class="nt-actionbar nt-article__share">
+							<div class="nt-actionbar__rating">
+								<span class="nt-eyebrow"><?php novatube_the_icon( 'share', 13 ); ?><?php esc_html_e( 'Share this article', 'novatube' ); ?></span>
+							</div>
+							<div class="nt-actionbar__actions">
+								<button type="button" class="nt-btn nt-btn--secondary nt-btn--sm js-copy-link" data-url="<?php echo esc_url( get_permalink() ); ?>">
+									<?php novatube_the_icon( 'link', 14 ); ?><?php esc_html_e( 'Copy link', 'novatube' ); ?>
+								</button>
+								<a class="nt-btn nt-btn--secondary nt-btn--sm" href="<?php echo esc_url( 'https://x.com/intent/post?url=' . $novatube_share_url . '&text=' . $novatube_share_txt ); ?>" target="_blank" rel="noopener noreferrer nofollow">
+									<?php novatube_the_icon( 'x', 14 ); ?><?php esc_html_e( 'X', 'novatube' ); ?>
+								</a>
+								<a class="nt-btn nt-btn--secondary nt-btn--sm" href="<?php echo esc_url( 'mailto:?subject=' . $novatube_share_txt . '&body=' . $novatube_share_url ); ?>">
+									<?php novatube_the_icon( 'mail', 14 ); ?><?php esc_html_e( 'Email', 'novatube' ); ?>
+								</a>
+							</div>
+						</div>
+
+						<?php edit_post_link( __( 'Edit article', 'novatube' ), '<p class="nt-page-desc">', '</p>' ); ?>
+
+						<?php if ( $novatube_author && get_the_author_meta( 'description', $novatube_author_id ) ) : ?>
+							<section class="nt-panel nt-author">
+								<div class="nt-author__avatar"><?php echo get_avatar( $novatube_author_id, 64 ); ?></div>
+								<div>
+									<span class="nt-eyebrow"><?php esc_html_e( 'Written by', 'novatube' ); ?></span>
+									<h2 class="nt-panel__title"><a href="<?php echo esc_url( get_author_posts_url( $novatube_author_id ) ); ?>"><?php echo esc_html( $novatube_author ); ?></a></h2>
+									<p class="nt-page-desc"><?php echo esc_html( get_the_author_meta( 'description', $novatube_author_id ) ); ?></p>
+								</div>
+							</section>
 						<?php endif; ?>
 
 						<?php
 						the_post_navigation(
 							array(
-								'prev_text' => '<span class="post-nav__label">' . esc_html__( 'Previous article', 'novatube' ) . '</span><span class="post-nav__title">%title</span>',
-								'next_text' => '<span class="post-nav__label">' . esc_html__( 'Next article', 'novatube' ) . '</span><span class="post-nav__title">%title</span>',
-								'class'     => 'post-navigation',
+								'prev_text' => '<span class="nt-eyebrow">' . esc_html__( 'Previous article', 'novatube' ) . '</span><span class="nt-section-title">%title</span>',
+								'next_text' => '<span class="nt-eyebrow">' . esc_html__( 'Next article', 'novatube' ) . '</span><span class="nt-section-title">%title</span>',
+								'class'     => 'nt-pagination',
 							)
 						);
 						?>
 
 						<?php if ( $novatube_related ) : ?>
-							<section class="related-posts" aria-labelledby="related-posts-heading">
-								<div class="section-head">
-									<h2 class="section-title" id="related-posts-heading"><?php esc_html_e( 'Keep reading', 'novatube' ); ?></h2>
+							<section class="nt-video__related" aria-labelledby="related-posts-heading">
+								<div class="nt-section-head">
+									<div class="nt-section-head__main">
+										<span class="nt-eyebrow"><?php novatube_the_icon( 'fire', 13 ); ?><?php esc_html_e( 'Keep reading', 'novatube' ); ?></span>
+										<h2 class="nt-section-title" id="related-posts-heading"><?php esc_html_e( 'Related articles', 'novatube' ); ?></h2>
+									</div>
 								</div>
-								<div class="post-list post-list--grid">
+
+								<div class="nt-grid nt-grid--posts">
 									<?php foreach ( $novatube_related as $novatube_related_id ) : ?>
 										<?php get_template_part( 'template-parts/post-card', null, array( 'post_id' => (int) $novatube_related_id ) ); ?>
 									<?php endforeach; ?>

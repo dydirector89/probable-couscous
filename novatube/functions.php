@@ -16,6 +16,7 @@ define( 'NOVATUBE_URI', get_template_directory_uri() );
 
 require NOVATUBE_DIR . '/inc/setup.php';
 require NOVATUBE_DIR . '/inc/post-types.php';
+require NOVATUBE_DIR . '/inc/video-meta.php';
 require NOVATUBE_DIR . '/inc/meta-boxes.php';
 require NOVATUBE_DIR . '/inc/template-tags.php';
 require NOVATUBE_DIR . '/inc/customizer.php';

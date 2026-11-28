@@ -71,7 +71,7 @@ function novatube_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'novatube_accent_color',
 		array(
-			'default'           => '#ff3b6b',
+			'default'           => '#ff7a45',
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);
@@ -91,7 +91,7 @@ function novatube_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'novatube_accent_color_2',
 		array(
-			'default'           => '#ff8a3d',
+			'default'           => '#ff9468',
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);
@@ -337,6 +337,7 @@ function novatube_customize_register( $wp_customize ) {
 	foreach ( array(
 		'sidebar' => __( 'Sidebar ad', 'novatube' ),
 		'player'  => __( 'Below the video player', 'novatube' ),
+		'home'    => __( 'Homepage, between video sections', 'novatube' ),
 	) as $key => $label ) {
 		$wp_customize->add_setting(
 			'novatube_ad_' . $key,

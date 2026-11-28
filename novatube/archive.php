@@ -48,43 +48,48 @@ if ( $novatube_is_video_archive ) {
 $novatube_found = (int) $GLOBALS['wp_query']->found_posts;
 ?>
 <main id="main" class="site-main">
-	<div class="container section">
+	<div class="nt-container nt-section">
 		<?php novatube_breadcrumbs(); ?>
 
-		<header class="page-hero">
-			<span class="eyebrow"><?php novatube_the_icon( 'film', 14 ); ?><?php echo esc_html( $novatube_eyebrow ); ?></span>
-			<div class="page-hero__row">
-				<div>
-					<h1 class="page-title"><?php echo esc_html( wp_strip_all_tags( $novatube_title ) ); ?></h1>
-					<?php if ( $novatube_description ) : ?>
-						<div class="page-description"><?php echo wp_kses_post( wpautop( $novatube_description ) ); ?></div>
-					<?php endif; ?>
-				</div>
-				<?php if ( $novatube_found ) : ?>
-					<span class="page-count">
-						<?php
-						if ( $novatube_is_video_archive ) {
-							/* translators: %s: video count. */
-							echo esc_html( sprintf( _n( '%s video', '%s videos', $novatube_found, 'novatube' ), number_format_i18n( $novatube_found ) ) );
-						} else {
-							/* translators: %s: post count. */
-							echo esc_html( sprintf( _n( '%s article', '%s articles', $novatube_found, 'novatube' ), number_format_i18n( $novatube_found ) ) );
-						}
-						?>
-					</span>
+		<header class="nt-page-head">
+			<div class="nt-page-head__main">
+				<span class="nt-eyebrow"><?php novatube_the_icon( 'film', 13 ); ?><?php echo esc_html( $novatube_eyebrow ); ?></span>
+				<h1 class="nt-page-title"><?php echo esc_html( wp_strip_all_tags( $novatube_title ) ); ?></h1>
+
+				<?php if ( $novatube_description ) : ?>
+					<div class="nt-page-desc"><?php echo wp_kses_post( wpautop( $novatube_description ) ); ?></div>
 				<?php endif; ?>
 			</div>
 
-			<?php if ( $novatube_is_video_archive ) : ?>
-				<?php novatube_sort_tabs(); ?>
+			<?php if ( $novatube_found ) : ?>
+				<span class="nt-page-count">
+					<?php
+					if ( $novatube_is_video_archive ) {
+						/* translators: %s: video count. */
+						echo esc_html( sprintf( _n( '%s video', '%s videos', $novatube_found, 'novatube' ), number_format_i18n( $novatube_found ) ) );
+					} else {
+						/* translators: %s: post count. */
+						echo esc_html( sprintf( _n( '%s article', '%s articles', $novatube_found, 'novatube' ), number_format_i18n( $novatube_found ) ) );
+					}
+					?>
+				</span>
 			<?php endif; ?>
 		</header>
 
-		<div class="layout layout--sidebar">
-			<div class="layout__main">
+		<div class="nt-layout">
+			<div class="nt-layout__main">
 				<?php if ( have_posts() ) : ?>
 					<?php if ( $novatube_is_video_archive ) : ?>
-						<div class="video-grid">
+						<div class="nt-page-toolbar">
+							<div class="nt-page-toolbar__left">
+								<span class="nt-eyebrow"><?php novatube_the_icon( 'sliders', 13 ); ?><?php esc_html_e( 'Sort the collection', 'novatube' ); ?></span>
+							</div>
+							<div class="nt-page-toolbar__right">
+								<?php novatube_sort_tabs(); ?>
+							</div>
+						</div>
+
+						<div class="nt-grid nt-grid--videos">
 							<?php
 							while ( have_posts() ) {
 								the_post();
@@ -93,7 +98,7 @@ $novatube_found = (int) $GLOBALS['wp_query']->found_posts;
 							?>
 						</div>
 					<?php else : ?>
-						<div class="post-list">
+						<div class="nt-grid nt-grid--posts">
 							<?php
 							while ( have_posts() ) {
 								the_post();
@@ -116,6 +121,8 @@ $novatube_found = (int) $GLOBALS['wp_query']->found_posts;
 					);
 					?>
 				<?php endif; ?>
+
+				<?php novatube_ad( 'home' ); ?>
 			</div>
 
 			<?php get_sidebar(); ?>

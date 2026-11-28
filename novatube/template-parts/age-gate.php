@@ -1,6 +1,6 @@
 <?php
 /**
- * Age gate modal.
+ * Age gate dialog.
  *
  * @package NovaTube
  */
@@ -10,23 +10,23 @@ $novatube_age_text  = get_theme_mod( 'novatube_age_text', __( 'This website cont
 $novatube_age_enter = get_theme_mod( 'novatube_age_enter', __( 'I am 18 or older — Enter', 'novatube' ) );
 $novatube_age_exit  = get_theme_mod( 'novatube_age_exit_url', 'https://www.google.com/' );
 ?>
-<div class="age-gate" id="novatube-age-gate">
-	<div class="age-gate__backdrop"></div>
-	<div class="age-gate__dialog" role="dialog" aria-modal="true" aria-labelledby="novatube-age-title" aria-describedby="novatube-age-description" tabindex="-1">
-		<div class="age-gate__logo">
-			<span class="logo__mark"><?php novatube_the_icon( 'play', 18 ); ?></span>
-			<span class="logo__text"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
+<dialog class="nt-dialog nt-age-gate" id="novatube-age-gate" aria-labelledby="novatube-age-title" aria-describedby="novatube-age-description">
+	<div class="nt-dialog__body">
+		<span class="nt-age-gate__mark"><?php novatube_the_icon( 'play', 21 ); ?></span>
+
+		<h2 class="nt-age-gate__title" id="novatube-age-title"><?php echo esc_html( $novatube_age_title ); ?></h2>
+		<p class="nt-age-gate__text" id="novatube-age-description"><?php echo esc_html( $novatube_age_text ); ?></p>
+
+		<div class="nt-age-gate__actions">
+			<button class="nt-btn nt-btn--primary nt-btn--lg nt-btn--block js-age-enter" type="button" data-age-enter>
+				<?php novatube_the_icon( 'check', 18 ); ?>
+				<?php echo esc_html( $novatube_age_enter ); ?>
+			</button>
+			<a class="nt-btn nt-btn--ghost nt-btn--block" href="<?php echo esc_url( $novatube_age_exit ); ?>">
+				<?php esc_html_e( 'I am under 18 — Leave', 'novatube' ); ?>
+			</a>
 		</div>
 
-		<span class="age-gate__badge" aria-hidden="true">18+</span>
-		<h2 id="novatube-age-title"><?php echo esc_html( $novatube_age_title ); ?></h2>
-		<div class="age-gate__description" id="novatube-age-description"><?php echo wp_kses_post( wpautop( $novatube_age_text ) ); ?></div>
-
-		<div class="age-gate__actions">
-			<button type="button" class="btn btn--primary btn--lg" data-age-enter><?php echo esc_html( $novatube_age_enter ); ?></button>
-			<a class="btn btn--ghost" href="<?php echo esc_url( $novatube_age_exit ); ?>"><?php esc_html_e( 'Leave site', 'novatube' ); ?></a>
-		</div>
-
-		<p class="age-gate__note"><?php esc_html_e( 'By entering you agree to our terms and confirm that adult content is legal in your location.', 'novatube' ); ?></p>
+		<p class="nt-age-gate__legal"><?php esc_html_e( 'By entering you agree to our terms and confirm that adult content is legal in your jurisdiction. Your choice is stored only on this device.', 'novatube' ); ?></p>
 	</div>
-</div>
+</dialog>
